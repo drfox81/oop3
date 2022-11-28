@@ -1,12 +1,12 @@
 package transport;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Car extends Transport {
 
-    private String brand;
     double engineVolume;
 
     private String bodyType;
@@ -89,9 +89,6 @@ public class Car extends Transport {
             }
         }
 
-        public String getBrandKey() {
-            return Car.this.brand;
-        }
 
         public boolean isRemoteEngineStart() {
             return remoteEngineStart;
@@ -182,7 +179,7 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Автомобиль " + brand + " " + getModel() + "\nобъем двигателя " + engineVolume +
+        return "Автомобиль " + getBrand() + " " + getModel() + "\nобъем двигателя " + engineVolume +
                 ", цвет " + transmission + ", год выпуска " + getYear() +
                 ", страна производства " + bodyType + ", тип кузова " + bodyType + ", трансмиссия " + transmission +
                 ", регистрационный номер " + registrationNumber + ",\n количество мест " + numberOfSeats +
@@ -264,5 +261,18 @@ public class Car extends Transport {
         } else {
             System.out.println("Определите тип топлива для начала");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Double.compare(car.engineVolume, engineVolume) == 0 && numberOfSeats == car.numberOfSeats && Objects.equals(getBrand(), car.getBrand()) && Objects.equals(bodyType, car.bodyType) && Objects.equals(transmission, car.transmission) && Objects.equals(registrationNumber, car.registrationNumber) && Objects.equals(seаsonTyres, car.seаsonTyres) && Objects.equals(carNumberGIBDD, car.carNumberGIBDD) && Objects.equals(carNumberStringGIBDD, car.carNumberStringGIBDD);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), engineVolume, bodyType, transmission, registrationNumber, numberOfSeats, seаsonTyres, carNumberGIBDD, carNumberStringGIBDD);
     }
 }

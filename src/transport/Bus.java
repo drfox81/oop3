@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public class Bus extends Transport {
     public Bus(String brand, String model, int year, String country) {
         super(brand, model, year, country);
@@ -21,5 +23,15 @@ public class Bus extends Transport {
         } else {
             System.out.println("Определите тип топлива для начала");
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

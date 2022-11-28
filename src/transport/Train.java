@@ -20,6 +20,8 @@ public class Train extends Transport {
         setNumberOfWagons(numberOfWagons);
     }
 
+
+
     public int getPriceOfTrip() {
         return priceOfTrip;
     }
@@ -78,6 +80,13 @@ public class Train extends Transport {
                 getDameDepartureStation() + " до станции " + getFinalStop() + ". В пути поезд может развить " +
                 "скорость до " + getMaxSpeed() + " км/ч.";
     }
+    @Override
+    public String toString() {
+        return "Поезд " + getBrand() + " " + getModel() + ", состоящий из " +
+                getNumberOfWagons() + " вагонов, проследует от станции " +
+                getDameDepartureStation() + " до станции " + getFinalStop() + ". В пути поезд может развить " +
+                "скорость до " + getMaxSpeed() + " км/ч.";
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -104,4 +113,5 @@ public class Train extends Transport {
             System.out.println("Определите тип топлива для начала");
         }
     }
+
 }

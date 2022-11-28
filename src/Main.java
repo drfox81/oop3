@@ -84,7 +84,15 @@ public class Main {
         hundayAvante.refill(50);
 
         hundayAvante.refillTwo(30);
+
+        System.out.println(oneBus.hashCode());
+        System.out.println(lasto4ka.hashCode());
+        System.out.println(hundayAvante.hashCode());
+        System.out.println(hundayAvante.toString());
+        System.out.println(lasto4ka.toString());
     }
+
+
 
 
 }
